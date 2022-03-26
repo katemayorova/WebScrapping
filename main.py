@@ -1,8 +1,12 @@
 import bs4
 import requests
+from log_decorator import log_decorator_factory
 from bs4 import BeautifulSoup
 
+LOG_FILE = 'log_file.txt'
 
+
+@log_decorator_factory(LOG_FILE)
 def find_keywords(keywords: set, text: str):
     for keyword in keywords:
         if text.find(keyword) != -1:
